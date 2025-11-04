@@ -35,26 +35,12 @@ int main(int argc, char const *argv[])
     printf("Orig: %d\nNew: %d\n", priority, newPriority);
 
     struct timespec sleepyTime;
-    struct timespec remainingSleep = {0, 0};
 
-    sleepyTime.tv_sec = 0;
-    sleepyTime.tv_nsec = 1837272638;
+    sleepyTime.tv_sec = 1;
+    sleepyTime.tv_nsec = 837272638;
 
 
-    int res = nanosleep(&sleepyTime, &remainingSleep);
-
-    if (res == 0)
-    {
-        printf("Sleep successful\n");
-    }
-    else if (res == -1)
-    {
-        printf("sleep failed\n%ld %ld\n", remainingSleep.tv_sec, remainingSleep.tv_nsec);
-    }
-    else
-    {
-        printf("some sleep left\n");
-    }
+    nanosleep(&sleepyTime, NULL);
     printf("Goodbye\n");
 
     return 0;
